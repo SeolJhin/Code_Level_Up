@@ -57,35 +57,31 @@ using namespace std;
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
-        
-        
-        std::vector<int> nums;
-        std:: cout << "숫자들 입력";
-
-
-        int target;
-        std:: cout << "원하는 숫자";
 
         for (int i = 0; i < nums.size(); i++) {
             
-            int num1, num2;
+            for (int j = i + 1; j < nums.size(); j++){
 
-            num1 = nums[i];
-            
-            for (int j = 0; j < nums.size(); j++){
-
-                num2 = nums[j];
-
-                if (num1 + num2 == target) {
+                if (nums[i] + nums[j] == target) {
                     return {i, j};
                 }
-
-                return {target, num1, num2};
-
             }
 
         }
 
-        
+        return {};
     }
 };
+
+
+int main() {
+    Solution solution;
+    vector<int> nums = {2, 7, 11, 15};
+    int target = 9;
+
+    vector<int> result = solution.twoSum(nums, target);
+
+    cout << "Indices: [" << result[0] << ", " << result[1] << "]" << endl;
+
+    return 0;
+}
